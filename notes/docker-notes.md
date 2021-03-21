@@ -21,6 +21,7 @@
 `docker run -d IMAGE` -> start a new container from an image in a background  
 `docker run -v HOSTDIR:TARETDIR IMAGE` -> start a new container from an image and map a local directory into the container  
 `docker run -it IMAGE CMD` -> start a new container from an image and run a command  
+`docker run --name NAME --network NETWORK_NAME IMAGE` -> start a new container with given name and given network 
 `docker rm CONTAINER` -> delete a container  
 `docker rm -f CONTAINER` -> delete a running container  
 `docker container prune` -> delete stopped containers  
