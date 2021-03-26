@@ -1,47 +1,28 @@
-const express = require('express');
+const express = require("express")
 const cors = require('cors');
 
-const app = express();
+const app = express()
+
+const queries = require('./queries')
 
 app.use(cors());
 app.use(express.json());
 
-const redis = require('redis');
+// Connection to psql & table creation
 
-const redisClient = redis.createClient({
-    host: "myredis",
-    port: 6379
-    // retry_strategy: () => 1000
-});
+queries.checkOrCreateTable();
 
-redisClient.on('connect', () => {
-    console.log("Connected to Redis server");
-});
+app.get('/hello',(req, res) => {
+    res.send("Hello from albums project")
+  });
 
-const { Pool } = require('pg');
+// Mapping operations to endpoints
+app.get('/albums', queries.getAlbums);
+app.get('/albums/:id', queries.getAlbumById);
+app.post('/albums', queries.createAlbum);
 
-const pgClient = new Pool({
-    user: "postgres",
-    password: "1qaz2wsx",
-    database: "postgres",
-    host: "mypostgres",
-    port: "5432"
-});
+const PORT = 9090;
 
-pgClient.on('error', () => {
-    console.log("Postgres not conencted");
-});
-
-pgClient.query('CREATE TABLE IF NOT EXISTS numbers (numer INT)')
-.catch( (err) => {
-    console.log(err);
-});
-
-app.get("/", (req, res) => {
-    res.send("Hello World!")
-});
-
-const PORT = 5000;
 app.listen(PORT, () => {
-    console.log(`API listening on port ${PORT}`);
+    console.log(`API is listening of port ${PORT}`);
 });
