@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-local
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 20Mi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+  # remember that in minikube this directory is created under virtual machine for kubernetes - minikube ssh!
+  # or run minikube with --mount so your user will be mounted
+    path: "/opt/kubernetes_pv"
