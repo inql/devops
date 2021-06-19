@@ -7,7 +7,7 @@ const DeleteAlbum = (props) => {
     const [albumID, setAlbumID] = useState("");
 
     const handleSubmit = (event) =>{
-        axios.delete(`http://localhost:5000/albums/${albumID}`)
+        axios.delete(`/api/albums/${albumID}`)
         .then(response => console.log(response))
         .catch(error => console.log(error));
         event.preventDefault();

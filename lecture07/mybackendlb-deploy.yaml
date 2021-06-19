@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mybackendlb-deployment
+  name: newbackend-deployment
   labels:
     component: backend
     name: my-app2
@@ -9,14 +9,16 @@ metadata:
 spec:
   template:
     metadata:
-      name: mybackendlb-pod
+      name: newbackend-pod
       labels:
         component: backend
         name: my-app2
     spec:
       containers:
-        - name: mybackendlb-container
-          image: inql/mybackendlb
+        - name: newbackend-container
+          image: inql/mybackendlb2
+          ports:
+            - containerPort: 5000
 
   replicas: 3
   selector:

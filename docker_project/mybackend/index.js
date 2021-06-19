@@ -26,7 +26,7 @@ app.delete('/albums/:id', queries.deleteAlbum);
 
 
 
-const PORT = 4000;
+const PORT = 5000;
 
 app.listen(PORT, () => {
     console.log(`API is listening on port ${PORT}`);

@@ -9,7 +9,7 @@ const AddAlbum = (props) => {
 
     const handleSubmit = (event) =>{
         console.log(`Dane do wyslania ${title} ${body}`);
-        axios.post('http://localhost:5000/albums',{
+        axios.post('/api/albums',{
             name: title,
             artist: body,
         })

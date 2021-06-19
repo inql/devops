@@ -12,7 +12,7 @@ const UpdateAlbum = (props) => {
     // Both parameters have to be passed (name and artist)
     const handleSubmit = (event) =>{
         console.log(`Dane do wyslania ${title} ${body}`);
-        axios.put(`http://localhost:5000/albums/${albumID}`,{
+        axios.put(`/api/albums/${albumID}`,{
             name: title,
             artist: body,
         })

@@ -5,7 +5,7 @@ const Album = (props) => {
     const [albums, setAlbums] = useState([]);
     const[number, setNumber] = useState(-1);
     useEffect(() =>{
-        axios.get('http://localhost:5000/albums')
+        axios.get('/api/albums')
         .then(response => setAlbums(response.data))
         .catch(error => console.log(error));
     }, []);

@@ -17,7 +17,7 @@ services:
       dockerfile: Dockerfile
       context: ./mynginx
     ports: 
-      - '9090:80'
+      - '80:80'
     image: inql/music-library-mynginx
   mybackend:
     build: 
@@ -38,7 +38,7 @@ services:
       - POSTGRES_USER=postgres
       - REDIS_HOST=myredis
     ports:
-      - "5000:4000"
+      - "5000:5000"
     image: inql/music-library-mybackend
   myfrontend:
       build:

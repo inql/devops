@@ -8,7 +8,7 @@ const GetAlbum = (props) => {
     const [album, setAlbum] = useState([]);
 
     const handleSubmit = (event) =>{
-        axios.get(`http://localhost:5000/albums/${albumID}`)
+        axios.get(`/api/albums/${albumID}`)
         .then(response => setAlbum(response.data))
         .catch(error => console.log(error));
         event.preventDefault();
