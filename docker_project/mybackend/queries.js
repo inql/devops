@@ -65,7 +65,6 @@ const getAlbumById = (request, response) => {
         response.status(200).header('cache', 'true').json(object);
       })
     } else {
-      console.log("Data not found in Redis cache")
       pgClient.query('SELECT * FROM albums WHERE id = $1', [id], (error, results) => {
         if (error) {
           throw error;

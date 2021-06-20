@@ -42,10 +42,10 @@ services:
     image: inql/music-library-mybackend
   myfrontend:
       build:
-        dockerfile: Dockerfile.dev
+        dockerfile: Dockerfile
         context: ./myfrontend
-      depends_on: 
-        - 'mynginx'
+      # depends_on: 
+      #   - 'mynginx'
       volumes:
         - /opt/app/node_modules
         - ./myfrontend:/opt/app
