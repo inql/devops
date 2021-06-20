@@ -18,6 +18,8 @@ kubectl apply -f ./myredis/myredis-configMap.yml
 
 kubectl apply -f ./myredis/myredis-clusterip.yml
 
+sleep 30
+
 # Start mybackend
 kubectl apply -f ./mybackendlb/mybackendlb-clusterip.yml
 
@@ -36,4 +38,7 @@ kubectl apply -f ./myfrontend/myfrontend-node-port.yml
 
 # Start Ingress
 minikube addons enable ingress
+
+sleep 10
+
 kubectl apply -f myapp-ingress.yml
