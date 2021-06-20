@@ -25,7 +25,7 @@ redisClient.on('connect', () => {
   console.log('Connected to Redis server');
 });
 
-function checkOrInstantiateTable(){
+function createTableIfNeeded(){
     pgClient.query(`CREATE TABLE IF NOT EXISTS albums (
             ID SERIAL PRIMARY KEY      NOT NULL,
             name      TEXT             NOT NULL,
@@ -123,7 +123,7 @@ const deleteAlbum = (request, response) => {
 };
 
 module.exports = {
-    checkOrInstantiateTable,
+    createTableIfNeeded,
     createAlbum,
     getAlbums,
     getAlbumById,

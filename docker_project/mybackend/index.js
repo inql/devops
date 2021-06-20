@@ -11,7 +11,7 @@ app.use(express.json());
 
 
 // Creating connection to postgresql and creating table if it doesn't exists
-queries.checkOrInstantiateTable();
+queries.createTableIfNeeded();
 
 app.get('/hello',(req, res) => {
     res.send("Hello from albums project")
